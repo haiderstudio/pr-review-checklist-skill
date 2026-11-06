@@ -1,0 +1,8 @@
+diff --git a/README.md b/README.md
+--- a/README.md
++++ b/README.md
+@@ -1,2 +1,4 @@
+ # Shop
+ A tiny shop.
++
++Run `python3 -m pytest` to check the code.
