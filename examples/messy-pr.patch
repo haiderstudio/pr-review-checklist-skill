@@ -1,0 +1,22 @@
+diff --git a/shop.py b/shop.py
+--- a/shop.py
++++ b/shop.py
+@@ -1,2 +1,11 @@
+ def total(items):
+     return sum(item["price"] for item in items)
++
++
++def apply_discount(total, code):
++    print("DEBUG total", total)
++    if code == "HALF":
++        return total / 2
++    if code == "NONE":
++        return total
++    raise ValueError("unknown discount code")
+diff --git a/README.md b/README.md
+--- a/README.md
++++ b/README.md
+@@ -1,2 +1,2 @@
+-# Shop
++# Shoppe
+ A tiny shop.

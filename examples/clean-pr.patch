@@ -1,0 +1,35 @@
+diff --git a/shop.py b/shop.py
+--- a/shop.py
++++ b/shop.py
+@@ -1,2 +1,10 @@
+ def total(items):
+     return sum(item["price"] for item in items)
++
++
++def apply_discount(total, code):
++    if code == "HALF":
++        return total / 2
++    if code == "NONE":
++        return total
++    raise ValueError("unknown discount code")
+diff --git a/test_shop.py b/test_shop.py
+--- a/test_shop.py
++++ b/test_shop.py
+@@ -0,0 +1,17 @@
++from shop import apply_discount
++
++
++def test_half():
++    assert apply_discount(100, "HALF") == 50
++
++
++def test_none():
++    assert apply_discount(100, "NONE") == 100
++
++
++def test_unknown():
++    try:
++        apply_discount(100, "NOPE")
++    except ValueError:
++        return
++    raise AssertionError("expected ValueError")
